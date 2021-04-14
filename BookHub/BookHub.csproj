@@ -22,8 +22,4 @@
     <ProjectReference Include="..\BookHub.Utility\BookHub.Utility.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-  </ItemGroup>
-
 </Project>
