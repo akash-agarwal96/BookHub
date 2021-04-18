@@ -9,18 +9,22 @@ using System.Threading.Tasks;
 
 namespace BookHub.DataAccess.Repository
 {
-    public class ShoppingCartRepository : Repository<ShoppingCart>, IShoppingCartRepository
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
         private readonly ApplicationDbContext _db;
 
-        public ShoppingCartRepository(ApplicationDbContext db) : base(db)
+        public CategoryRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-        public void Update(ShoppingCart obj)
+        public void Update(Category category)
         {
-            _db.Update(obj);
+            var objFromDb = _db.Categories.FirstOrDefault(s => s.Id == category.Id);
+            if(objFromDb != null)
+            {
+                objFromDb.Name = category.Name;
+            }
         }
     }
 }
