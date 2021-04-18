@@ -48,7 +48,17 @@ namespace BookHub
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = "802089944061537";
+                options.AppSecret = "6dba092469c52805b6eb18d86b3bf8ef";
+            });
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "389214444499-tr109qcl0lou8sdraei6mrfd3uu8f77h.apps.googleusercontent.com";
+                options.ClientSecret = "q_G3cHlko9UWilLhqnpsI2Qo";
 
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
