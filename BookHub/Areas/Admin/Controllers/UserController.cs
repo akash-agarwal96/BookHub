@@ -7,10 +7,13 @@ using BookHub.DataAccess.Repository.IRepository;
 using BookHub.Models;
 using BookHub.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using BookHub.Utility;
 
 namespace BookHub.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _db;

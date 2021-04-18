@@ -5,10 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookHub.DataAccess.Repository.IRepository;
 using BookHub.Models;
+using Microsoft.AspNetCore.Authorization;
+using BookHub.Utility;
 
 namespace BookHub.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

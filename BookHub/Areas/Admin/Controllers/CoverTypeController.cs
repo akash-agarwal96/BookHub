@@ -7,10 +7,12 @@ using BookHub.Models;
 using Microsoft.AspNetCore.Mvc;
 using Dapper;
 using BookHub.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookHub.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CoverTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
