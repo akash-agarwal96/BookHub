@@ -7,6 +7,7 @@ using BookHub.DataAccess.Repository.IRepository;
 using BookHub.Models;
 using Microsoft.AspNetCore.Authorization;
 using BookHub.Utility;
+using BookHub.Models.ViewModels;
 
 namespace BookHub.Areas.Admin.Controllers
 {
@@ -19,9 +20,26 @@ namespace BookHub.Areas.Admin.Controllers
         {
             _unitOfWork = unitOfWork;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int productPage = 1)
         {
-            return View();
+            CategoryVM categoryVM = new CategoryVM()
+            {
+                Categories = await _unitOfWork.Category.GetAllAsync()
+            };
+
+            var count = categoryVM.Categories.Count();
+            categoryVM.Categories = categoryVM.Categories.OrderBy(p => p.Name)
+                .Skip((productPage - 1) * 2).Take(2).ToList();
+
+            categoryVM.PagingInfo = new PagingInfo
+            {
+                CurrentPage = productPage,
+                ItemsPerPage = 2,
+                TotalItem = count,
+                urlParam = "/Admin/Category/Index?productPage=:"
+            };
+
+            return View(categoryVM);
         }
 
         public async Task<IActionResult> Upsert(int? id)
@@ -77,10 +95,12 @@ namespace BookHub.Areas.Admin.Controllers
             var objFromDb = await _unitOfWork.Category.GetAsync(id);
             if (objFromDb == null)
             {
+                TempData["Error"] = "Error deleting Category";
                 return Json(new { success = false, message = "Error while deleting" });
             }
             await _unitOfWork.Category.RemoveAsync(objFromDb);
             _unitOfWork.Save();
+            TempData["Success"] = "Category successfully deleted";
             return Json(new { success = true, message = "Delete Successful" });
 
         }
