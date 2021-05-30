@@ -12,10 +12,50 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <style>
+        html, body {
+            margin: 0px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+            .dropdown-menu a {
+                text-decoration: none;
+                display: block;
+                background-color: white;
+            }
+
+                .dropdown-menu a:hover {
+                    background-color: #b7b7b7;
+                }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-toggle {
+            background-color: darkgray;
+        }
+
+        .navbar {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+            font-weight: 200;
+            font-size: medium;
+            font-palette: light;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookHub</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -52,12 +92,26 @@
                                 </div>
                             </li>
                         }
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Genre
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Pd">Personal Development</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Bio">Biographies</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Be">Business and Economics</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Ct">Crime and Thriller</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Rn">Romance</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Lf">Literature and Fiction</a>
+                            </div>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">
                                 @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
                                 {
-                                     <span>Manage Order</span> 
-                                 }
+                                    <span>Manage Order</span>
+                                }
                                 else
                                 {
                                     <span>Order History</span>
@@ -72,7 +126,7 @@
                                     <i class="fas fa-shopping-cart"></i> &nbsp; (@count)
                                 </a>
                             </li>
- }
+                        }
                         else
                         {
                             <li style="color:white;">
@@ -80,14 +134,16 @@
                                     <i class="fas fa-shopping-cart"></i> &nbsp; (0)
                                 </a>
                             </li>
-}
+
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             <partial name="_Notifications" />
             @RenderBody()

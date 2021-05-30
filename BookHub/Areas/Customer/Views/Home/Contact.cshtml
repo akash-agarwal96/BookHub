@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+    <img src="~/images/contactus-banner.jpg" class="img-fluid" />
+</section>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+        margin-bottom: 10px;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .container1 {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+<div class="container1">
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <div id="googlemap" style="width:250px; height:500px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.004095784072!2d77.59386981389619!3d12.97158949085592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16775069abf7%3A0xe138768bb2a0df8a!2sUB%20City!5e0!3m2!1sen!2sin!4v1622365215827!5m2!1sen!2sin" width="500" height="400" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form class="my-form">
+                <div class="form-group">
+                    <label for="form-name">Name</label>
+                    <input type="text" class="form-control" id="form-name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="form-email">Email Address</label>
+                    <input type="email" class="form-control" id="form-email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <label for="form-subject">State</label>
+                    <select class="form-control" id="country" name="country" required>
+                        <option value="" selected disabled hidden>Select State</option>
+                        <option value="usa">Bengaluru</option>
+                        <option value="usa">Chennai</option>
+                        <option value="usa">Kolkata</option>
+                        <option value="canada">Maharastra</option>
+                        <option value="australia">New Delhi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="form-message">Email your Message</label>
+                    <textarea class="form-control" id="form-message" placeholder="Message" required></textarea>
+                </div>
+                <button class="btn btn-default" type="submit" onclick="">Contact Us</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .my-form {
+        color: #ff6a00;
+        font-weight: 800;
+       
+    }
+
+        .my-form .btn-default {
+            background-color: #ff6a00;
+            color: #fff;
+            border-radius: 0;
+        }
+            .my-form .btn-default:hover {
+                background-color: #f04124;
+                color: #fff;
+            }
+
+        .my-form .form-control {
+            border-radius: 0;
+        }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
