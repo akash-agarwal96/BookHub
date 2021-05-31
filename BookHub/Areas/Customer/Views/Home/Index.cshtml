@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<BookHub.Models.Product>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
 
     <style>
         .carouse1 {
             height: 400px;
-          
         }
     </style>
     <div class="carousel1">
@@ -35,9 +35,9 @@
             </a>
         </div>
     </div>
-  <div>
-      <h2 style="text-align: center; font-size: 35px; font-weight:600; font-family:sans-serif; padding-top:20px; padding-bottom: 12px">Books</h2>
-  </div>
+    <div>
+        <h4 style="text-align: center; font-size:32px; font-family: 'Source Sans Pro', sans-serif; padding-top:20px; padding-bottom: 12px">BOOKS</h4>
+    </div>
 
     <div class="row pb-3 backgroundWhite pb-5">
 
@@ -50,7 +50,7 @@
                 <img src="@product.ImageUrl" class="card-img-top rounded" />
                 <div class="pl-1">
                     <p class="card-title h5"><b style="color:#2c3e50">@product.Title</b></p>
-                    <p class="card-title text-primary">by <b>@product.Author</b></p>
+                    <p class="card-title text-danger">by <b>@product.Author</b></p>
                 </div>
                 <div style="padding-left:5px;">
                     <p>List Price: <strike><b class="">₹@product.ListPrice.ToString("0.00")</b></strike></p>
@@ -65,6 +65,5 @@
         </div>
     </div>
 </div>}
-    
+
     </div>
-    
