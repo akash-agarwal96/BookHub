@@ -56,7 +56,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger border-bottom box-shadow">
-            <div class="container-fluid">
+            <div class="container">
               
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookHub</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -98,12 +98,12 @@
                                 Genre
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Pd">Personal Development</a>
-                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Bio">Biographies</a>
-                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Be">Business and Economics</a>
-                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Ct">Crime and Thriller</a>
-                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Rn">Romance</a>
-                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Lf">Literature and Fiction</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="PersonalDevelopment">Personal Development</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Biographies">Biographies</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="BusinessEconomics">Business and Economics</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="CrimeThriller">Crime and Thriller</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="Romance">Romance</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Genre" asp-action="LiteratureFiction">Literature and Fiction</a>
                             </div>
                         </li>
                         
@@ -150,8 +150,7 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-white bg-danger">
+    <footer class="footer  text-white bg-danger">
         <div class="container">
             &copy; 2021 - BookHub
         </div>

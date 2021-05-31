@@ -23,32 +23,32 @@ namespace BookHub.Areas.Customer.Controllers
             _unitofWork = unitOfWork;
         }
 
-        public IActionResult Pd()
+        public IActionResult PersonalDevelopment()
         {
             IEnumerable<Product> productList = _unitofWork.Product.GetAll(includeProperties: "Category,CoverType");
             return View(productList);
         }
-        public IActionResult Bio()
+        public IActionResult Biographies()
         {
             IEnumerable<Product> productList = _unitofWork.Product.GetAll(includeProperties: "Category,CoverType");
             return View(productList);
         }
-        public IActionResult Ct()
+        public IActionResult CrimeThriller()
         {
             IEnumerable<Product> productList = _unitofWork.Product.GetAll(includeProperties: "Category,CoverType");
             return View(productList);
         }
-        public IActionResult Lf()
+        public IActionResult LiteratureFiction()
         {
             IEnumerable<Product> productList = _unitofWork.Product.GetAll(includeProperties: "Category,CoverType");
             return View(productList);
         }
-        public IActionResult Rn()
+        public IActionResult Romance()
         {
             IEnumerable<Product> productList = _unitofWork.Product.GetAll(includeProperties: "Category,CoverType");
             return View(productList);
         }
-        public IActionResult Be()
+        public IActionResult BusinessEconomics()
         {
             IEnumerable<Product> productList = _unitofWork.Product.GetAll(includeProperties: "Category,CoverType");
             return View(productList);

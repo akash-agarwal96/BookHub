@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<BookHub.Models.Product>
 
-<h2><strong><u>Romance</u></strong></h2>
-<div class="row pb-3 backgroundWhite">
+<h2><strong><u>Literature and Fiction</u></strong></h2>
+<div class="row pb-3 backgroundWhite pb-5">
 
     @foreach (var product in Model)
     {
 
 
-        @if (product.Category.Name.Contains("Romance"))
+        @if (product.Category.Name.Contains("Literature and Fiction"))
         {
             <div class="col-lg-3 col-md-6">
                 <div class="row p-2">
-                    <div class="col-md-10 p-1" style="border:1px solid #008cba; border-radius: 5px;">
+                    <div class="col-md-10 p-1" style="border:1px solid #ff6a00; border-radius: 5px;">
                         <div class="card" style="border:0px;">
                             <img src="@product.ImageUrl" class="card-img-top rounded" />
                             <div class="pl-1">
